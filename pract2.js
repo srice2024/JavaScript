@@ -1,0 +1,1 @@
+// This is the second part of the javascript masterclass these lessons are going to build off of what I learned in the previous class. 

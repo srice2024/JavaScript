@@ -1,3 +1,7 @@
+/* This is the first part of the Javascript Course by Jonas Schmedtmann on Udemy. I will be following allong and coding what I can here
+and I will also have my notebook on Notion that will be the notes on subjects that are not really code based and would not make 
+sense in this position*/
+
 //Creation of variables with proper practices utilizing const instead of let except for when you know the varibale is going to change. 
 const country = `United States`;
 const continent = `North America`;
