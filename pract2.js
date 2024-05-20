@@ -146,15 +146,15 @@ const shonr = {
     friends: ["Kevin", "Lupita", "Ulises"],
     driversLicense: true,
     //has to be a function expression and not a declaration. It will not have function or be assigned to any variable. 
-    calcAge: function () {
+    /*calcAge: function () {
        ///console.log(this)
         this.age = 2024 - this.birthyear;
         return this.age;
     },
 
-    getSummary: function () { 
+    //getSummary: function () { 
         return `${this.firstname} is a ${this.calcAge()}-year old ${shonr.job}, and he has ${this.driversLicense ? 'a' : 'no'} driver's license.`
-    }
+    }*/
 };
 console.log(shonr)
 //Dot vs. Bracket Notion 
@@ -168,13 +168,51 @@ console.log(shonr)
 
 console.log(`${shonr.firstname} has ${shonr.friends.length}, and ${shonr.friends[0]} is his best friend.`);
 
-console.log(shonr.calcAge(1995))
-console.log(shonr.getSummary())//remember this is a function and should be called like one when setting up.
+//console.log(shonr.calcAge(1995))
+//console.log(shonr.getSummary())//remember this is a function and should be called like one when setting up.
 
 //Loops 
 //will keep running while the condition is true.
 for (let rep = 0; rep <= 10; rep++) {
     //the actual line of code that will be repeated over and over
     console.log(`Lifting weights rep ${rep}`);
-    
+}
+//coding in a for loop that cycles through the the array
+for (let i = 0; i < friendsList.length; i++) {
+    console.log(friendsList[i]);
+}
+//continue and break for loops
+//continue will stop this iteration of the loop and continue onto the next. It will stop the iteration and run the next. 
+for (let i = 0; i < friendsList.length; i++) {
+    if(typeof friendsList[i] !== 'string') continue;
+}
+//break will stop the loop all together, once the break line runs the entire loop will stop 
+for (let i = 0; i < friendsList.length; i++) {
+    if(typeof friendsList[i] !== 'string') break;
+}
+
+//Looping backwards 
+for (let i = friendsList.length - 1; i >= 0; i--) {
+    console.log(i, friendsList[i]);
+}
+//nested loops
+for (let Excersize = 1; Excersize < 4; Excersize++) {
+   console.log(`-------- Starting excersize ${Excersize}`);   
+    for (let rep = 1; rep < 6; rep++) {
+        console.log(`Lifting weight repetition ${rep} `);
+    };
+};
+//while loops make a great choice when you do not know what your count is for 
+//while loop with a counter 
+let rep = 1;
+while (rep <= 10) {
+    console.log(`WHILE: Lifting weight repetition ${rep}`);
+    rep++;
+}
+//while loop with out a counter and using randomized numbers. 
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while(dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
 }
