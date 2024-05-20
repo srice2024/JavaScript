@@ -6,9 +6,9 @@ This learning folder is a collection of various tutorials and exercises that I h
 Structure
 The repository is organized into the following sections:
 
-1. Tutorials
-   Description: This section contains code and notes from various tutorials I have followed. Each subfolder represents a different tutorial or learning resource.
-   Examples:
+Tutorials
+Description: This section contains code and notes from various tutorials I have followed. Each subfolder represents a different tutorial or learning resource.
+Examples:
 
 JavaScript Basics
 Advanced React Techniques
