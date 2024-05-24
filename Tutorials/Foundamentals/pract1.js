@@ -8,7 +8,7 @@ const continent = `North America`;
 const population = 75;
 const isIsland = false;
 const language = "English";
-
+//logging information to the counsel in the browser
 console.log(typeof isIsland);
 console.log(typeof population);
 console.log(typeof country);
@@ -27,7 +27,7 @@ console.log(more);
 console.log(ave);
 console.log(description);
 
-//Creating a BMI Calculation that takes the height and weight of each person and compares their BMI to eachother.
+//assigning the values to the variables to be called later on in the code.
 const massMark = 78;
 const heightMark = 1.69;
 const massJohn = 92;
@@ -53,7 +53,7 @@ if (age >= 18) {
     `You have to wait ${yearsLeft} before you can take your driver's test.`
   );
 }
-//I can also log a variable in the code block, I have an empty variable and will assign it with the answer.
+//Logging code in the global space and allowing the variable to be empty and assign it according to the if statement outcome.
 const birthyear = 1995;
 let century;
 if (birthyear <= 2000) {
