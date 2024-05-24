@@ -82,6 +82,7 @@ btnHold.addEventListener("click", function () {
       //finish the game
       playing = false;
       diceEl.classList.add("hidden");
+      //changing active player dynamically with the defined value of active player in the code above.
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add("player--winner");
