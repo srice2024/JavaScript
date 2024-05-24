@@ -8,13 +8,12 @@ const passTest = true;
 if (passTest) haveDL = true;
 if (haveDL) console.log("I can Drive");
 
-// Functions - code that can be used over and over again
-
+// Functions - reusable code blocks that can be reused instead of rewriting code all the way through.
 function logger() {
-  // function body
+  // function body that is being executed when the function is called.
   console.log("My name is Shon");
 }
-//calling, running, or invocking a function.
+//calling, running, or invocking a function can be used interchangibly.
 logger();
 logger();
 logger();
@@ -22,7 +21,7 @@ logger();
 function fruitProcessor(apples, oranges) {
   console.log(apples, oranges);
   const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
-  //return will log the answer to the console and you will not see it unless you go back and set it to a varible and call it.
+  //return will log the answer to the browser and you will not see it in the console unless you go back and set it to a varible and call it.
   return juice;
 }
 const appleJuice = fruitProcessor(5, 0);
@@ -54,7 +53,7 @@ console.log(age3);
 const yearsToRetirement = (birthyear, firstName) => {
   const age = 2037 - birthyear;
   const retirement = 65 - age;
-  //return retirement;
+  //return retirement, this allows for the answer to be called at a later time.
   return `${firstName} retires in ${retirement} years`;
 };
 const calcageR = (birthyear) => 2037 - birthyear;
@@ -74,7 +73,7 @@ const yearsToRetirementIfElse = (birthyear, firstName) => {
 console.log(yearsToRetirementIfElse(1995, "Shon"));
 console.log(yearsToRetirementIfElse(1970, "Susy"));
 
-//nesting functions
+//nesting functions this allows a function to act upon another function.
 function cutFruitPieces(fruit) {
   return fruit * 4;
 }
@@ -86,13 +85,13 @@ function fruitProcessor2(apples, oranges) {
   return juice;
 }
 console.log(fruitProcessor2(5, 4));
-//Arrays
+//Arrays - Strings that are placed within square brackets.
 const friendsList = ["Mike", "Roger", "Kevin", "Lupita"];
 //or you can use this method
 const teams = new Array("ManU", "ManCity", "NewCastle", "Liverpool");
 console.log(teams);
 console.log(friendsList);
-//indexing, the code is indexed at 0 so
+//indexing, the code is indexed at 0 so that is where we began.
 console.log(friendsList[0]);
 //lenght, the total number of items in the array and is not zero indexed at this moment.
 console.log(friendsList.length);
