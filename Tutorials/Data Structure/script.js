@@ -245,3 +245,87 @@ rest2.numGuests ||= 10;
 
 console.log(rest1);
 console.log(rest2);
+//For of Loop, faster way in order to complete the for loop
+//you have the direct for loop for one item
+const secMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (const item of secMenu) console.log(item);
+//taking the items in place to have a menu itemise by each number and not zero index
+for (const [i, el] of secMenu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+// const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+// //you are indexing the variable name to the name of the item.
+// const openingHours = {
+//   [weekdays[3]]: {
+//     open: 12,
+//     close: 22,
+//   },
+//   [weekdays[4]]: {
+//     open: 11,
+//     close: 23,
+//   },
+//   [weekdays[5]]: {
+//     open: 0, // Open 24 hours
+//     close: 24,
+//   },
+// };
+
+// Optional Chaining
+// WITH optional chaining the left of the question mark is read and if true = continue, false = undefined.
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+
+for (const day of days) {
+  //iterating over the array, you interate each day in the day slot.
+  //you have the optional chaining ?. and then nullish coalescing ?? to clear the 0 being undefined
+  const open = restaurant.openingHours[day]?.open ?? "closed";
+  console.log(`On ${day}, we open at ${open}`);
+}
+//Methods can be used, use the nullish in facto to make sure you return everything you are looking for.
+console.log(restaurant.order?.(0, 1) ?? "Method does not exist");
+console.log(restaurant.orderRisotto?.(0, 1) ?? "Method does not exist");
+
+// Arrays
+const users = [{ name: "shon", email: "hello@shon.io" }];
+//const users = [];
+//Optional chainging to see if array is empty, then return name and nullish cosc for the rest of the elements
+console.log(users[0]?.name ?? "User array empty");
+
+// Property NAMES
+//you have the object and keys with the project. You list the keys which is the array
+const properties = Object.keys(openingHours);
+console.log(properties);
+//iterating over the string for the literal.
+let openStr = `We are open on ${properties.length} days: `;
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+// Property VALUES
+//setting to a variable the values of the object and property.
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object
+//transform values in an array that can be iterated over the array
+const entries = Object.entries(openingHours);
+// console.log(entries);
+
+// [key, value]
+//the actual iteration over the value and key from the object previously created.
+for (const [day, { open, close }] of entries) {
+  console.log(`On ${day} we open at ${open} and close at ${close}`);
+}
+
+//Sets
+const ordersSet = new Set([
+  "Pasta",
+  "Pizza",
+  "Pizza",
+  "Risotto",
+  "Pasta",
+  "Pizza",
+]);

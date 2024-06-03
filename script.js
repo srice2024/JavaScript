@@ -469,7 +469,7 @@ GOOD LUCK 😀
 */
 
 const game = {
-  team1: "Real Madrid",
+  team1: "Bayern Munich",
   team2: "Borrussia Dortmund",
   players: [
     [
@@ -843,7 +843,7 @@ restaurant.orderDelivery({
   time: '22:30',
   address: 'Via del Sole, 21',
   mainIndex: 2,
-  starterIndex: 2,rest
+  starterIndex: 2,
 });
 
 restaurant.orderDelivery({
