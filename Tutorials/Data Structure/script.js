@@ -320,7 +320,8 @@ for (const [day, { open, close }] of entries) {
   console.log(`On ${day} we open at ${open} and close at ${close}`);
 }
 
-//Sets
+//Sets - can only have unique items inside so that means no duplicates.
+//most common iterable is that of an array as they can hold multiple data sets
 const ordersSet = new Set([
   "Pasta",
   "Pizza",
@@ -329,3 +330,232 @@ const ordersSet = new Set([
   "Pasta",
   "Pizza",
 ]);
+/* sets do not have an index you can not retrieve info you can only see if it is in a set
+console.log(ordersSet.size); //.size gives you the length of the set 
+console.log(ordersSet.has('Pizza')); //checking if items are in the set
+ordersSet.add('Garlic Bread'); //adding an item to a set.
+ordersSet.delete('Risotto');//deleting an item from a set
+ordersSet.clear();//delete all information from a set
+*/
+console.log(ordersSet);
+
+// Example
+const staff = ["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"];
+//unpacking the set into a new variable would give me the array
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+//maps - map values to keys, the keys have any types
+//set method will allow you to create the new value. It will also return the map
+const rest = new Map();
+rest.set("name", "Classico Italiano");
+rest.set(1, "Firenze, Italy");
+console.log(rest.set(2, "Lisbon, Portugal"));
+
+rest
+  .set("categories", ["Italian", "Pizzeria", "Vegetarian", "Organic"])
+  .set("open", 11)
+  .set("close", 23)
+  .set(true, "We are open :D")
+  .set(false, "We are closed :(");
+//You can get information from a map by using the get Method
+console.log(rest.get("name"));
+console.log(rest.get(true));
+console.log(rest.get(1));
+//example - not best practice
+const time = 8;
+console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
+//map also has size and clear as methods
+
+// Maps: Iteration - key, value will create the body of the map.
+const question = new Map([
+  ["question", "What is the best programming language in the world?"],
+  [1, "C"],
+  [2, "Java"],
+  [3, "JavaScript"],
+  ["correct", 3],
+  [true, "Correct 🎉"],
+  [false, "Try again!"],
+]);
+console.log(question);
+// Convert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours)); //place object into the map creation
+console.log(hoursMap);
+
+// Quiz app
+console.log(question.get("question"));
+for (const [key, value] of question) {
+  if (typeof key === "number") console.log(`Answer ${key}: ${value}`);
+}
+// const answer = Number(prompt('Your answer'));
+const answer = 3;
+console.log(answer);
+
+console.log(question.get(question.get("correct") === answer));
+
+// Convert map to array
+console.log([...question]);
+// console.log(question.entries());
+console.log([...question.keys()]);
+console.log([...question.values()]);
+/*
+arrays - need to manipulate data
+sets - better for performance and when you need a unique list
+objects - it is eaiers to access and write, when working with JSON files
+maps - want to map values and want values that are not strings
+*/
+// Working With Strings - Part 1
+const airline = "TAP Air Portugal";
+const plane = "A320";
+
+console.log(plane[0]); //indexing within a string
+console.log("B737"[0]); //indexing in a string
+
+console.log(airline.length); // finding the length
+console.log("B737".length);
+
+console.log(airline.indexOf("r")); //returns the position
+console.log(airline.lastIndexOf("r")); //will give you the last position, with duplicate characters
+console.log(airline.indexOf("portugal")); //give you the word location as an index.
+console.log(airline.slice(4)); //need indexes as arguments, starts at the index and moves forward, starts a new string
+console.log(airline.slice(4, 7)); //gives you also the begginng and end and is not inclusive of the last index
+console.log(airline.slice(0, airline.indexOf(" "))); //gets the first word, starting at zero and endig before the space
+console.log(airline.slice(airline.lastIndexOf(" ") + 1)); //get the last word, starting at the last space to the end + 1 more character
+console.log(airline.slice(-2)); //starts at the last two items and moves forward
+console.log(airline.slice(1, -1)); //starts at one and stops before the last character
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === "B" || s === "E") console.log("You got the middle seat 😬");
+  else console.log("You got lucky 😎");
+};
+checkMiddleSeat("11B");
+checkMiddleSeat("23C");
+checkMiddleSeat("3E");
+//boxing - JS in the background will take your string and place it in a box and create an object with it to be manipulated
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// Fix capitalization in name
+const passenger = "jOnAS"; // Jonas
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// Comparing emails
+const email = "hello@jonas.io";
+const loginEmail = "  Hello@Jonas.Io \n";
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+const normalizedEmail = loginEmail.toLowerCase().trim(); //combining the two methods on the same string
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+// replacing
+const priceGB = "288,97£";
+const priceUS = priceGB.replace("£", "$").replace(",", "."); //first-what to place, second-replace with what?
+console.log(priceUS);
+
+const announcement =
+  "All passengers come to boarding door 23. Boarding door 23!";
+
+console.log(announcement.replace("door", "gate")); //replaces the first door but leave the second
+console.log(announcement.replaceAll("door", "gate")); //replaces all instances of the word door on the selected value
+//console.log(announcement.replace(/door/g, "gate"));
+
+// Booleans
+const airbus = "Airbus A320neo";
+console.log(airbus.includes("A320")); //is the string inside of the string
+console.log(airbus.includes("Boeing"));
+console.log(airbus.startsWith("Airb")); //does it start with the corresponding letters
+
+if (airbus.startsWith("Airbus") && airbus.endsWith("neo")) {
+  console.log("Part of the NEW ARirbus family");
+}
+
+// Practice exercise
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+
+  if (baggage.includes("knife") || baggage.includes("gun")) {
+    console.log("You are NOT allowed on board");
+  } else {
+    console.log("Welcome aboard!");
+  }
+};
+checkBaggage("I have a laptop, some Food and a pocket Knife");
+checkBaggage("Socks and camera");
+checkBaggage("Got some snacks and a gun for protection");
+
+// Split and join
+console.log("a+very+nice+string".split("+")); //will split at the +
+console.log("Jonas Schmedtmann".split(" ")); //will split at the space
+
+const [firstName, lastName] = "Jonas Schmedtmann".split(" "); //assigning splits into two different variables
+
+const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" "); //will join and have a delimitor of space.
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(" "); //creates a name array of the different parts
+  const namesUpper = []; //creates a holding cell for the newly created array parts
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase())); //creates the capitalized pieces to be added to namesUpper
+  }
+  console.log(namesUpper.join(" ")); //add everything back together with spaces in between
+};
+
+capitalizeName("jessica ann smith davis");
+capitalizeName("jonas schmedtmann");
+
+// Padding - allows you to create fluff in order to get a desired length, you choose the character to fluff with.
+const message = "Go to gate 23!";
+console.log(message.padStart(20, "+").padEnd(30, "+")); //the same but you will add to the end of the string instead
+console.log("Jonas".padStart(20, "+").padEnd(30, "+"));
+
+const maskCreditCard = function (number) {
+  const str = number + "";
+  const last = str.slice(-4);
+  return last.padStart(str.length, "*");
+};
+
+console.log(maskCreditCard(64637836));
+console.log(maskCreditCard(43378463864647384));
+console.log(maskCreditCard("334859493847755774747"));
+
+// Repeat
+const message2 = "Bad waether... All Departues Delayed... ";
+console.log(message2.repeat(5)); //to repeat and how often do you want to have the repeat
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${"🛩".repeat(n)}`);
+};
+planesInLine(5);
+planesInLine(3);
+planesInLine(12);
+// String Methods Practice
+
+const airportInfo =
+  "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
+
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+const getCode = (str) => str.slice(0, 3).toUpperCase();
+
+for (const flight of airportInfo.split("+")) {
+  const [type, from, to, time] = flight.split(";");
+  const output = `${type.startsWith("_Delayed") ? "🔴" : ""}${type.replaceAll(
+    "_",
+    " "
+  )} ${getCode(from)} ${getCode(to)} (${time.replace(":", "h")})`.padStart(36);
+  console.log(output);
+}
