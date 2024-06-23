@@ -398,7 +398,6 @@ const checkDogs = function (dogsJulia, dogsKate) {
 // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
 
-
 ///////////////////////////////////////
 // The map Method - iterates over the elements included in the code. Will apply whatever you added to each element.
 const eurToUsd = 1.1;
@@ -416,10 +415,10 @@ const movementsUSDfor = [];
 for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
 console.log(movementsUSDfor);
 //iterating through each element of movements and checking if it's greater than 0 being a deposit or less being a withdrawl
-//labeling each action a Movement element then adding one. 
+//labeling each action a Movement element then adding one.
 const movementsDescriptions = movements.map(
   (mov, i) =>
-    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+    `Movement ${i + 1}: You ${mov > 0 ? "deposited" : "withdrew"} ${Math.abs(
       mov
     )}`
 );
@@ -436,22 +435,21 @@ console.log(deposits);
 
 const depositsFor = [];
 for (const mov of movements) if (mov > 0) depositsFor.push(mov);
-console.log(depositsFor);//less than zero = false so only returns positive. Pushed to the empty array
+console.log(depositsFor); //less than zero = false so only returns positive. Pushed to the empty array
 
-const withdrawals = movements.filter(mov => mov < 0);
-console.log(withdrawals); 
-
+const withdrawals = movements.filter((mov) => mov < 0);
+console.log(withdrawals);
 
 ///////////////////////////////////////
 // The reduce Method
 console.log(movements);
 
 // accumulator -> SNOWBALL, what will be added to the as the global value.
-// const balance = movements.reduce(function (acc, cur, i, arr) { - accumulator, current value, item, array. 
+// const balance = movements.reduce(function (acc, cur, i, arr) { - accumulator, current value, item, array.
 //   console.log(`Iteration ${i}: ${acc}`);
 //   return acc + cur; - Adding accumulator to current value
 // }, 0); - Starting value for function
-const balance = movements.reduce((acc, cur) => acc + cur, 0);//accumulator plus current value
+const balance = movements.reduce((acc, cur) => acc + cur, 0); //accumulator plus current value
 console.log(balance);
 
 let balance2 = 0;
@@ -459,12 +457,13 @@ for (const mov of movements) balance2 += mov;
 console.log(balance2);
 
 // Maximum value
-const max = movements.reduce((acc, mov) => { //acc is the accumulator that will keep track of the biggest max number while interating.
-  if (acc > mov) return acc;//When mov is higher than acc it will log it in acc and wont change unless a larger number is inputted.
+const max = movements.reduce((acc, mov) => {
+  //acc is the accumulator that will keep track of the biggest max number while interating.
+  if (acc > mov)
+    return acc; //When mov is higher than acc it will log it in acc and wont change unless a larger number is inputted.
   else return mov;
 }, movements[0]);
 console.log(max);
-*/
 
 ///////////////////////////////////////
 // Coding Challenge #2
